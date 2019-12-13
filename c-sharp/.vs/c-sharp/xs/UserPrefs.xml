@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{F1A0D924-C4FA-40A4-AAED-E81B6E4FC281}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/1.SinglyLinkedList.cs">
+    <Files>
+      <File FileName="Program.cs" Line="13" Column="25" />
+      <File FileName="src/1.SinglyLinkedList.cs" Line="21" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="c-sharp" expanded="True">
+            <Node name="c-sharp" expanded="True">
+              <Node name="src" expanded="True">
+                <Node name="1.SinglyLinkedList.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.c-sharp PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
