@@ -1,2 +1,5 @@
+.vs
 .vscode
 build
+bin
+obj

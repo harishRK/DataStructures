@@ -6,4 +6,7 @@
     <RootNamespace>DataStructures</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="src\3.Queue" />
+  </ItemGroup>
 </Project>

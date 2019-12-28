@@ -16,4 +16,8 @@ Once the build is successful, navigate to build folder in your terminal or comma
 
 ```
 node 1.singlyLinkedList.js
+node 2.doublyLinkedList.ts
+node 3.stack.ts
+node 4.queue.ts
+node 5.binarySearchTree.ts
 ```
