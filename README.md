@@ -1,6 +1,6 @@
 # Data Structures in typescript/javascript
 
-This repo has typescript/javascript and javascript implementation of data structures.
+This repo has typescript/javascript and C# implementation of data structures.
 
 1. Singly Linked List
 2. Doubly Linked List
