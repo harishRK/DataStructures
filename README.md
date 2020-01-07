@@ -7,6 +7,9 @@ This repo has typescript/javascript and C# implementation of data structures.
 3. Stack
 4. Queue
 5. Binary Search Tree
+6. Max Binary Heap
+7. Min Binary Heap
+8. Priority Queue based on Max Binary Heap
 
 
 For running code in js folder, you need the following:
@@ -23,8 +26,11 @@ Once the build is successful, navigate to build folder in your terminal or comma
 
 ```
 node 1.singlyLinkedList.js
-node 2.doublyLinkedList.ts
-node 3.stack.ts
-node 4.queue.ts
-node 5.binarySearchTree.ts
+node 2.doublyLinkedList.js
+node 3.stack.js
+node 4.queue.js
+node 5.binarySearchTree.js
+node 6.minBinaryHeap.js
+node 7.maxBinaryHeap.js
+node 8.priorityQueue.js
 ```

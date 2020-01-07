@@ -228,29 +228,29 @@ class SinglyLinkedList<T> {
   }
 
   reverse() {
-      //Swap head and tail nodes
-      let node = this._head;
-      this._head = this._tail;
-      this._tail = node;
+    //Swap head and tail nodes
+    let node = this._head;
+    this._head = this._tail;
+    this._tail = node;
 
-      let prevNode: ListNode<T> = null;
-      let nextNode: ListNode<T>;
-      for(let i = 0; i < this._length; i++) {
-          nextNode = node.next;
-          node.next = prevNode;
-          prevNode = node;
-          node = nextNode;
-      }
+    let prevNode: ListNode<T> = null;
+    let nextNode: ListNode<T>;
+    for (let i = 0; i < this._length; i++) {
+      nextNode = node.next;
+      node.next = prevNode;
+      prevNode = node;
+      node = nextNode;
+    }
   }
 
   print() {
-      let arr: T[] = [];
-      let current = this._head;
-      while(current) {
-          arr.push(current.value);
-          current = current.next;
-      }
-      console.log(arr);
+    let arr: T[] = [];
+    let current = this._head;
+    while (current) {
+      arr.push(current.value);
+      current = current.next;
+    }
+    console.log(arr);
   }
 }
 
