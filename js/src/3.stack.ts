@@ -67,9 +67,8 @@ namespace Stack {
         this._last = newElement;
       } else {
         // Add the element at the beginning of the linked list
-        const temp = this._first;
+        newElement.next = this._first;
         this._first = newElement;
-        this._first.next = temp;
       }
       this._size++;
       return true;
@@ -79,12 +78,23 @@ namespace Stack {
      * Removes an element from the top of the stack and returns its value
      */
     pop(): T {
+      // If stack is empty, return null
       if (this._size == 0) return null;
-      let temp = this._first;
-      this._first = temp.next;
-      temp.next = null;
+
+      // Save the first element to a temp variable
+      let prevFirst = this._first;
+
+      // Set the first element to be next of the previous first element
+      this._first = prevFirst.next;
+
+      // Remove the node the stack
+      prevFirst.next = null;
+
+      // Decrease the size of the stack by 1
       this._size--;
-      return temp.value;
+
+      // return the value
+      return prevFirst.value;
     }
   }
 

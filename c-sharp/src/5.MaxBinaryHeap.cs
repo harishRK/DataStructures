@@ -61,7 +61,7 @@ namespace DataStructures
             }
 
             int max = Values[0];
-            // Move the last elemnt into the from of the list
+            // Move the last element into the front of the list
             int last = Values[Values.Count - 1];
             Values.RemoveAt(Values.Count - 1);
 
@@ -121,7 +121,7 @@ namespace DataStructures
                     return;
                 }
 
-                // Swap the node to sink with the max child node between its left and right childs
+                // Swap the node to sink with the max child node between its left and right child
                 Values[index] = Values[swapIndex];
                 Values[swapIndex] = nodeToSinkDown;
                 index = swapIndex;

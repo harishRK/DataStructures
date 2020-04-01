@@ -79,11 +79,11 @@ namespace Queue {
      */
     Dequeue(): T {
       if (this._size == 0) return null;
-      let temp = this._first;
-      this._first = temp.next;
-      temp.next = null;
+      let prevFirst = this._first;
+      this._first = prevFirst.next;
+      prevFirst.next = null;
       this._size--;
-      return temp.value;
+      return prevFirst.value;
     }
   }
 

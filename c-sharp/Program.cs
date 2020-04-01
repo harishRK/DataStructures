@@ -96,7 +96,7 @@ namespace DataStructures {
             PrintArray(myBST.DFS_PreOrder_Recursive());
 
             Console.WriteLine($"DFS-InOrder Traversal Data: ");
-            PrintArray(myBST.DFS_InOrder_Iterative()); // 10,6,3,0,8,15,11,20
+            PrintArray(myBST.DFS_InOrder_Iterative()); // 0,3,6,8,10,11,15,20
             PrintArray(myBST.DFS_InOrder_Recursive());
 
             Console.WriteLine($"DFS-PostOrder Traversal Data: ");

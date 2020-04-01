@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace DataStructures
 {
     /// <summary>
-    /// Priroty queue based on max heap. First element that will be returned will always the node with highest priority
+    /// Priority queue based on max heap. First element that will be returned will always the node with highest priority
     /// </summary>
     public class PriorityQueue
     {
@@ -50,15 +50,15 @@ namespace DataStructures
         private bool BubbleUp()
         {
             int elemIndex = Values.Count - 1;
-            Node element = Values[elemIndex];
+            Node nodeToBubbleUp = Values[elemIndex];
             int parentIndex = (elemIndex - 1) / 2;
 
             // Loop through the heap until we find the correct spot for the element
-            while (parentIndex >= 0 && element.Priority > Values[parentIndex].Priority)
+            while (parentIndex >= 0 && nodeToBubbleUp.Priority > Values[parentIndex].Priority)
             {
                 // Swap the element with the parent
                 Values[elemIndex] = Values[parentIndex];
-                Values[parentIndex] = element;
+                Values[parentIndex] = nodeToBubbleUp;
 
                 // Set the index to the new values
                 elemIndex = parentIndex;
@@ -77,7 +77,7 @@ namespace DataStructures
             }
 
             Node max = Values[0];
-            // Move the last elemnt into the from of the list
+            // Move the last element into the front of the list
             Node last = Values[Values.Count - 1];
             Values.RemoveAt(Values.Count - 1);
 
@@ -137,7 +137,7 @@ namespace DataStructures
                     return;
                 }
 
-                // Swap the node to sink with the max child node between its left and right childs
+                // Swap the node to sink with the max child node between its left and right child
                 Values[index] = Values[swapIndex];
                 Values[swapIndex] = nodeToSinkDown;
                 index = swapIndex;

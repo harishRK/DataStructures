@@ -10,6 +10,7 @@ This repo has typescript/javascript implementation of data structures.
 6. Max Binary Heap
 7. Min Binary Heap
 8. Priority Queue based on Max Binary Heap
+9. Graph - Using Adjacency list
 
 You need to install node ([download here](https://nodejs.org/en/download/)) and typescript for building the repo.
 Once you have node installed, you can run the following command to install typescript globally.
@@ -30,4 +31,5 @@ node 5.binarySearchTree.js
 node 6.minBinaryHeap.js
 node 7.maxBinaryHeap.js
 node 8.priorityQueue.js
+node 9.graph.js
 ```
