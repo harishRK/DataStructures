@@ -160,6 +160,34 @@ class Graph {
 
         return result;
     }
+
+    bfsTraversalIterative(startVertexName: string): string[] {
+        let result: string[] = [];
+        let visited: any = {};
+        let queue: string[] = [];
+        queue.push(startVertexName);
+
+        while (queue.length > 0) {
+            let name = queue.shift();
+            let currentVertex = this._adjList.find(e => e.name === name);
+            if (!visited[currentVertex.name]) {
+                // Mark the current vertex as visited
+                visited[currentVertex.name] = true;
+
+                // Add the current vertex to result list
+                result.push(currentVertex.name);
+
+                // Visit the neighbors of the current vertex one by on, if they are not already visited
+                currentVertex.edges.forEach(neighbor => {
+                    if (!visited[neighbor])
+                        queue.push(neighbor);
+                });
+
+            }
+        }
+
+        return result;
+    }
 }
 
 
@@ -194,3 +222,4 @@ udGraph.addAnEdge("Orlando", "Las Vegas");
 
 console.log(udGraph.dfsTraversalRecursive("Chicago"));
 console.log(udGraph.dfsTraversalIterative("Chicago"));
+console.log(udGraph.bfsTraversalIterative("Chicago"));
