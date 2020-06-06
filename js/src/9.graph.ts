@@ -76,7 +76,7 @@ class Graph {
     }
 
     /**
-     * Removes and edge between two vertices.
+     * Removes an edge between two vertices.
      * @param vertex1 One of the vertex of an edge to be removed
      * @param vertex2 ANother vertex of an edge to be removed
      */
