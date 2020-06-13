@@ -11,6 +11,8 @@ This repo has typescript/javascript implementation of data structures.
 7. Min Binary Heap
 8. Priority Queue based on Max Binary Heap
 9. Graph - Using Adjacency list
+10. Topological Sort and Finding a cycle  [Directed Graphs]
+11. Connected Components
 
 You need to install node ([download here](https://nodejs.org/en/download/)) and typescript for building the repo.
 Once you have node installed, you can run the following command to install typescript globally.
@@ -32,4 +34,6 @@ node 6.minBinaryHeap.js
 node 7.maxBinaryHeap.js
 node 8.priorityQueue.js
 node 9.graph.js
+node 10.topologicalSort.js
+node 11.connectedComponents.ts
 ```
