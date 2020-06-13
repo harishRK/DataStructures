@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Text;
-using System.Linq;
 using DataStructures.BST;
 using DataStructures.LinkedList;
 using DataStructures.Queue;
@@ -203,6 +202,43 @@ namespace DataStructures
             PrintList(udGraph.BFSTraversal("Chicago"));
 
             #endregion
+
+            #region  " Topological Sort "
+            Console.WriteLine("============= Topological Sort =============");
+
+            TopologicalSort tSorter = new TopologicalSort();
+            var adjList = new System.Collections.Generic.Dictionary<string, string[]>();
+            adjList.Add("A", new string[] { "B", "C" });
+            adjList.Add("B", new string[] { "D", "C" });
+            adjList.Add("C", new string[] { "E" });
+            adjList.Add("D", new string[] { "E", "F" });
+            adjList.Add("G", new string[] { "E", "F" });
+
+            bool hasCycle = tSorter.IsThereALoop(adjList);
+            Console.WriteLine($"Given Graph has a cycle? {hasCycle}");
+            if (!hasCycle)
+            {
+                Console.WriteLine($"Topological Order for the give graph: ");
+                PrintList(tSorter.FindTopologicalSort(adjList));
+            }
+
+            adjList = new System.Collections.Generic.Dictionary<string, string[]>();
+            adjList.Add("A", new string[] { "B", "C" });
+            adjList.Add("B", new string[] { "D", "C" });
+            adjList.Add("C", new string[] { "E", "A" });
+            adjList.Add("D", new string[] { "E", "F" });
+            adjList.Add("G", new string[] { "E", "F" });
+
+            hasCycle = tSorter.IsThereALoop(adjList);
+            Console.WriteLine($"Given Graph has a cycle? {hasCycle}");
+            if (!hasCycle)
+            {
+                Console.WriteLine($"Topological Order for the give graph: ");
+                PrintList(tSorter.FindTopologicalSort(adjList));
+            }
+
+            #endregion
+
             Console.ReadLine();
         }
 

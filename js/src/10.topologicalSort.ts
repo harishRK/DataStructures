@@ -98,7 +98,8 @@ class TopologicalSort {
             // Increase the visited node count
             count++;
             // Mark the current vertex as visited and decrease the inDegree for the edges of the vertex
-            // Imagine we are deleting this current vertex from our graph
+            // Imagine we are deleting this current vertex from our graph,
+            // by which the edges from this vertex also gets deleted. Once the edges are deleted, inDegree will also be reduced
             if (adjList.has(current)) {
                 adjList.get(current).forEach(edge => {
                     if (inDegree.has(edge) && inDegree.get(edge) > 0) {
@@ -122,8 +123,7 @@ class TopologicalSort {
 const adjList = new Map();
 adjList.set("A", ["B", "C"]);
 adjList.set("B", ["D", "C"]);
-// adjList.set("C", ["E"]);
-adjList.set("C", ["E", "A"]); // Adding an edge from vertex C to A make the graph cyclic
+adjList.set("C", ["E"]);
 adjList.set("D", ["E", "F"]);
 adjList.set("G", ["E", "F"]);
 
@@ -131,5 +131,18 @@ let tSorter = new TopologicalSort();
 if (!tSorter.isThereALoop(adjList)) {
     console.log(tSorter.findTopologicalSort(adjList));
 } else {
-    console.log("Given graph contains a cycle. Topological Sort is not possible for a cyclic graph");
+    console.log("Given graph contains a cycle. Topological Sort is not possible for a cyclic directed graph");
+}
+
+const adjListWithLoop = new Map();
+adjListWithLoop.set("A", ["B", "C"]);
+adjListWithLoop.set("B", ["D", "C"]);
+adjListWithLoop.set("C", ["E", "A"]); // Adding an edge from vertex C to A make the graph cyclic
+adjListWithLoop.set("D", ["E", "F"]);
+adjListWithLoop.set("G", ["E", "F"]);
+
+if (!tSorter.isThereALoop(adjListWithLoop)) {
+    console.log(tSorter.findTopologicalSort(adjListWithLoop));
+} else {
+    console.log("Given graph contains a cycle. Topological Sort is not possible for a cyclic directed graph");
 }
