@@ -1,6 +1,6 @@
 class TopologicalSort {
     /**
-     * For a given directed acyclic graph, topological ordering of the vertices will be identified
+     * For a given directed acyclic graph, topological ordering of the vertices will be identified using BFS
      * @param adjList Adjacency List that represent a graph with vertices and edges
      */
     findTopologicalSort(adjList: Map<string, string[]>): string[] {
@@ -57,6 +57,51 @@ class TopologicalSort {
         }
         return tSort;
     }
+
+    /**
+     * For a given directed acyclic graph, topological ordering of the vertices will be identified using DFS
+     * @param adjList Adjacency List that represent a graph with vertices and edges
+     */
+    findTopologicalSortDFS(adjList: Map<string, string[]>): string[] {
+        let tOrder: string[] = [];
+        let visited: Set<string> = new Set<string>();
+        let allVertices: Set<string> = new Set<string>();
+
+        // Find all vertices in the give graph
+        adjList.forEach((edges, vertex) => {
+            allVertices.add(vertex);
+
+            edges.forEach(edge => {
+                allVertices.add(edge);
+            });
+        });
+
+        // if we have vertices that are not visited yet
+        for (let vertex of allVertices.keys()) {
+            if (!visited.has(vertex)) {
+                this.DFSTraversal(vertex, visited, tOrder, adjList);
+            }
+        }
+
+        return tOrder;
+    }
+
+    private DFSTraversal(currentVertex: string, visited: Set<string>, tOrder: string[], adjList: Map<string, string[]>) {
+        visited.add(currentVertex);
+        // If current vertex has any edges
+        if (adjList.has(currentVertex)) {
+            // For edge of the current vertex
+            adjList.get(currentVertex).forEach(edgeVertex => {
+                // if the edgeVertex is not visited already
+                if (!visited.has(edgeVertex)) {
+                    this.DFSTraversal(edgeVertex, visited, tOrder, adjList);
+                }
+            });
+        }
+        // Prepend the current vertex to the sort result
+        tOrder.unshift(currentVertex);
+    }
+
 
     /**
      * Identities a cycle in the given graph
@@ -130,6 +175,7 @@ adjList.set("G", ["E", "F"]);
 let tSorter = new TopologicalSort();
 if (!tSorter.isThereALoop(adjList)) {
     console.log(tSorter.findTopologicalSort(adjList));
+    console.log(tSorter.findTopologicalSortDFS(adjList));
 } else {
     console.log("Given graph contains a cycle. Topological Sort is not possible for a cyclic directed graph");
 }
@@ -143,6 +189,7 @@ adjListWithLoop.set("G", ["E", "F"]);
 
 if (!tSorter.isThereALoop(adjListWithLoop)) {
     console.log(tSorter.findTopologicalSort(adjListWithLoop));
+    console.log(tSorter.findTopologicalSortDFS(adjListWithLoop));
 } else {
     console.log("Given graph contains a cycle. Topological Sort is not possible for a cyclic directed graph");
 }
